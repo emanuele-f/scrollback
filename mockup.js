@@ -208,20 +208,24 @@ function addPeople() {
 }
 
 function addChat() {
-    var $list = $(".chat-area-messages-list");
+    var $list = $(".chat-area-messages-list"),
+        $chat, name, text;
 
-    setInterval(function() {
-        setTimeout(function() {
-            var $chat = $('<div class="chat-item">').append(
-                            $('<div class="chat-item-nick">').text(generate.names(Math.floor(Math.random() * 7) + 3)),
-                            $('<div class="chat-item-message">').text(generate.sentence(Math.floor(Math.random() * 17) + 3))
-                         );
+    for (var room in roomsdata) {
+        for (var j = 0; j < roomsdata[room].length; j++) {
+            for (var k = 0; k < roomsdata[room][j].length; k++) {
+                name = Object.keys(roomsdata[room][j][k])[0];
+                text = roomsdata[room][j][k][name];
 
-            $list.append($chat);
+                $chat = $('<div class="chat-item">').append(
+                                $('<div class="chat-item-nick">').text(name),
+                                $('<div class="chat-item-message">').text(text)
+                             );
 
-            $chat.get(0).scrollIntoView(true);
-        }, 1000 * Math.random());
-    }, 1000);
+                $list.append($chat);
+            }
+        }
+    }
 }
 
 $(function() {
