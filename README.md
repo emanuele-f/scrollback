@@ -1,2 +1,2 @@
-A modified version of [https://github.com/scrollback/scrollback](scrollback)
+A modified version of [scrollback](https://github.com/scrollback/scrollback)
 chat program to run at http://informateci.org
