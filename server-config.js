@@ -13,7 +13,7 @@ var serverConfig = {
 	http: {
 		host: "local.scrollback.io",
 		cookieDomain: ".scrollback.io",
-		port: 8080,
+		port: 8181,
 		home: "public", // the directory containing static files
 		time: 60000,
 		limit: 30,
