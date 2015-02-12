@@ -1,6 +1,6 @@
 module.exports = {
     server: {
         protocol: "http:",
-        host: "//local.scrollback.io:8181"
+        host: "//informateci.org:8181"
     }
 };
