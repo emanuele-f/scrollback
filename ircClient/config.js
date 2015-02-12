@@ -25,7 +25,7 @@ function merge(d, c) {
 
 
 var defaults = {
-	botNick: "scrollback-ii",//default bot nick,
+	botNick: "scrollback",//default bot nick,
 	port: 8910,
 	debug: false,
 	webirc: {

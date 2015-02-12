@@ -55,6 +55,7 @@ function createRoom(room, user, description, id)
             id: room,
             description: description,
             type: "room",
+            identities: ["irc",],
             params: {
                 irc: {
                     server: "irc.freenode.net",
