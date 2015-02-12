@@ -1,17 +1,17 @@
 #!/bin/sh
 ### BEGIN INIT INFO
-# Provides: scrollback
+# Provides: scrollback_irc
 # Required-Start:    $remote_fs $syslog
 # Required-Stop:     $remote_fs $syslog
 # Default-Start:     2 3 4 5
 # Default-Stop:      0 1 6
-# Short-Description: Start scrollback daemon at boot time
-# Description:       Enable scrollback service provided by daemon.
+# Short-Description: Start scrollback irc daemon at boot time
+# Description:       Enable scrollback irc service provided by daemon.
 ### END INIT INFO
 
 dir="/home/srv/httpd/informateci.org/scrollback-ii"
 user="root"
-cmd="/usr/bin/nodejs ./index.js"
+cmd="/usr/bin/nodejs ircClient/server.js"
 
 name=`basename $0`
 pid_file="/var/run/$name.pid"
