@@ -6,22 +6,18 @@ var serverConfig = {
 	core: {
 		name: "scrollback",
 		newrelic: {
-			name: 'Scrollback Local'
+			name: 'Scrollback informateci'
 		}
 	},
 	env: "dev",
 	http: {
 		host: "local.scrollback.io",
-		cookieDomain: ".scrollback.io",
+		cookieDomain: ".scrollback.ii",
 		port: 8181,
 		home: "public", // the directory containing static files
 		time: 60000,
 		limit: 30,
 		index: "/me" //index URL redirect
-	},
-	email: {
-		from: "scrollback@scrollback.io",
-		redisDB: 7
 	},
     "leveldb-storage": {
 		path: "/data",
