@@ -74,7 +74,7 @@ $(function() {
 		$roomHeader = $(".room-header"),
 		$gotoform = $("#home-go-to-room-form"),
 		$gotoentry = $("#home-go-to-room-entry"),
-		$createRoomButton = $(".js-create-room"),
+		//~ $createRoomButton = $(".js-create-room"),
 		roomArea = {
 			add: function(roomObj) {
 				var done = false;
@@ -258,9 +258,9 @@ $(function() {
 	});
 
 	// Handle create new room
-	$createRoomButton.on("click", function() {
-		libsb.emit("navigate", { dialog: "createroom" });
-	});
+	//~ $createRoomButton.on("click", function() {
+    //~ libsb.emit("navigate", { dialog: "createroom" });
+	//~ });
 });
 
 libsb.on('room-dn', function(room, next) {
