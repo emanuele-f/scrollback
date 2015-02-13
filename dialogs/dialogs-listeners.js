@@ -91,6 +91,7 @@ function validateName(entry, button, type, callback) {
 	});
 }
 
+/*
 function createRoom(entry, button, callback) {
 	validateName(entry, button, "Room", function(name) {
 		var errormessage = "We could not create the room. Please refresh the page and try again.";
@@ -120,6 +121,7 @@ function createRoom(entry, button, callback) {
 		});
 	});
 }
+*/
 
 function createUser(entry, button, callback) {
 	validateName(entry, button, "User", function(name) {
@@ -160,7 +162,8 @@ libsb.on("init-dn", function(init, next) {
 		signingUp = false;
 	}
 
-	if (/(createroom|signup)/.test(window.currentState.dialog)) {
+	//~ if (/(createroom|signup)/.test(window.currentState.dialog)) {
+	if (/signup/.test(window.currentState.dialog)) {
 		libsb.emit("navigate", {
 			dialog: window.currentState.dialog,
 			source: "dialog"
@@ -181,6 +184,7 @@ libsb.on("user-dn", function(user, next) {
 	next();
 }, 100);
 
+/*
 libsb.on("createroom-dialog", function(dialog, next) {
 	var roomName = (window.currentState.mode === "noroom") ? window.currentState.roomName : "";
 
@@ -249,7 +253,7 @@ libsb.on("createroom-dialog", function(dialog, next) {
 	}
 
 	next();
-}, 100);
+}, 100);*/
 
 libsb.on("signup-dialog", function(dialog, next) {
 	if ((/^guest-/).test(libsb.user.id)) {
