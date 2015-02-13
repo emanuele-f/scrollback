@@ -27,7 +27,7 @@ module.exports = function(c) {
 	core.on("admit-up", sendAdmit, 10);
 	core.on("expel-up", sendExpel, 10);
 	core.on("user-up", sendUser, 10);
-	core.on("room-up", sendRoom, 10);
+	//~ core.on("room-up", sendRoom, 10);
 
 	core.on("getTexts", function(query, callback) {
 		query.type = "getTexts";
@@ -333,6 +333,7 @@ function sendUser(user, next) {
 	pendingActions[action.id] = returnPending(action, next);
 }
 
+/*
 function sendRoom(room, next) {
 	var action = makeAction(room, {
 		type: 'room',
@@ -343,3 +344,4 @@ function sendRoom(room, next) {
 	safeSend(JSON.stringify(action));
 	pendingActions[action.id] = returnPending(action, next);
 }
+*/
