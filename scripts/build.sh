@@ -39,10 +39,12 @@ case "$2" in
     local)
         echo "Setting up local hostname..."
         sed -i -e 's/host: "\/\/informateci.org:8181"/host: "\/\/local.scrollback.io:8181"/g' ./client-config.js
+        sed -i -e 's/informateci.org/local.scrollback.io/g' ./server-config.js
         ;;
     server)
         echo "Setting up informateci hostname..."
         sed -i -e 's/host: "\/\/local.scrollback.io:8181"/host: "\/\/informateci.org:8181"/g' ./client-config.js
+        sed -i -e 's/local.scrollback.io/informateci.org/g' ./server-config.js
         ;;
     *)
         usage
