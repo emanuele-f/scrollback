@@ -48,7 +48,7 @@ var handlers = {
 				}
 				if (wait) wait = false;
 				else callback();
-			});	
+			});
 		}else{
 			action.memberOf = [];
 			if (wait) wait = false;
@@ -356,10 +356,16 @@ function basicLoader(action, callback) {
 }
 
 function initializerUser(action, callback) {
-	var userObj;
+	var userObj, pic;
 	generateNick(action.suggestedNick || action.ref || "", function(possibleNick) {
 		possibleNick = "guest-" + possibleNick;
 		if (!action.ref) action.from = possibleNick;
+
+        if (action.picture)
+            pic = action.picture;
+        else
+            pic = generatePick(possibleNick);
+
 		userObj = {
 			id: possibleNick,
 			description: "",
@@ -368,7 +374,7 @@ function initializerUser(action, callback) {
 			params: {},
 			timezone: 0,
 			sessions: [action.session],
-			picture: generatePick(possibleNick)
+			picture: pic
 		};
 		action.user = userObj;
 		callback();
@@ -384,13 +390,13 @@ function generateNick(suggestedNick, callback) {
 	function checkUser(suggestedNick, attemptC, callback) {
 		var ct = 0, result = true;
 		var trying = suggestedNick;
-		
+
 		if (attemptC) {
 			lowBound = upBound;
 			upBound = 1 << attemptC;
 			trying += mathUtils.random(lowBound, upBound);
 		}
-		
+
 		if (attemptC >= config.nickRetries) return callback(names(6));
 		function done(r) {
 			result &= r;
