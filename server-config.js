@@ -1,6 +1,6 @@
 var serverConfig = {
 	global: {
-		host: "local.scrollback.io",
+		host: "informateci.org",
 		su: {}
 	},
 	core: {
@@ -9,19 +9,22 @@ var serverConfig = {
 			name: 'Scrollback informateci'
 		}
 	},
-	env: "dev",
+	env: "production",
 	http: {
-		host: "local.scrollback.io",
-		cookieDomain: ".scrollback.ii",
+		host: "informateci.org",
+		cookieDomain: ".informateci.org",
 		port: 8181,
 		home: "public", // the directory containing static files
 		time: 60000,
 		limit: 30,
 		index: "/me" //index URL redirect
 	},
-    "leveldb-storage": {
+   	"leveldb-storage": {
 		path: "/data",
 		disableQueries: false
-	}
+	},
+	   "browserid-auth": {
+		audience: "informateci.org"
+	},
 };
 module.exports = serverConfig;

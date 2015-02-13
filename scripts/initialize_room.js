@@ -112,7 +112,7 @@ function createUser(user, email, id)
 }
 
 // :. Create user admin
-createUser("ChatServer", "email_here");
+createUser("MindFlyer", "viglietta@gmail.com");
 
 // :. Create informate-chat room
-createRoom("informate-chat", "ChatServer", "La chat degli studenti informatici pisani");
+createRoom("informate-chat", "MindFlyer", "La chat degli studenti informatici pisani");
