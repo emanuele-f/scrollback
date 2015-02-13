@@ -1,4 +1,4 @@
 module.exports = {
-	botNick: "scrollback-ii",
+	botNick: "informateci",
 	debug: true
 };
