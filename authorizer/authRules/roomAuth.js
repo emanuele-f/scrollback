@@ -8,6 +8,20 @@ module.exports = function (core) {
 				action.user.role = "registered";
 			}
 		}
+
+        // This allows room modification for the owner
+        if (action.user.role === "owner") return callback();
+
+        // This allows superuser room creation
+        if (action.user.role !== 'su')
+            return callback(new SbError('ERR_NOT_ALLOWED', {
+			source: 'authorizer',
+			action: 'room',
+			requiredRole: 'su',
+			currentRole: action.user.role
+		}));
+
+        /*
 		if (action.user.role === 'su') return callback();
 		if (action.user.role === "guest") return callback(new SbError('ERR_NOT_ALLOWED', {
 			source: 'authorizer',
@@ -23,5 +37,6 @@ module.exports = function (core) {
 			requiredRole: 'owner',
 			currentRole: action.user.role
 		})));
+        */
 	}, "authorization");
 };
