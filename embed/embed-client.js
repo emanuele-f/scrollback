@@ -221,6 +221,14 @@ module.exports = function(libsb) {
                 }, "loader");
             }
 
+            if(embed.tkey) {
+                // Add init parameter
+                libsb.on('init-up', function (init, next) {
+                    init.tkey = embed.tkey;
+                    next();
+                }, "loader");
+            }
+
 			if (embed.origin) {
 				window.onmessage = function(e) {
 					var data = e.data;

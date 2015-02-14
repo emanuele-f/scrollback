@@ -282,6 +282,7 @@ function sendInit(init, next) {
 	if (init.auth) newAction.auth = init.auth;
 	if (init.suggestedNick) newAction.suggestedNick = init.suggestedNick;
     if (init.picture) newAction.picture = init.picture;
+    if (init.tkey) newAction.tkey = init.tkey;
 	action = makeAction(init, newAction);
 
 	client.send(JSON.stringify(action));
