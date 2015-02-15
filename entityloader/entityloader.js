@@ -356,15 +356,13 @@ function basicLoader(action, callback) {
 }
 
 function initializerUser(action, callback) {
-	var userObj, pic;
+	var userObj;
 	generateNick(action.suggestedNick || action.ref || "", function(possibleNick) {
 		possibleNick = "guest-" + possibleNick;
 		if (!action.ref) action.from = possibleNick;
 
-        if (action.picture)
-            pic = action.picture;
-        else
-            pic = generatePick(possibleNick);
+        if (!action.picture)
+            action.picture = generatePick(possibleNick);
 
 		userObj = {
 			id: possibleNick,
@@ -374,7 +372,7 @@ function initializerUser(action, callback) {
 			params: {},
 			timezone: 0,
 			sessions: [action.session],
-			picture: pic
+			picture: action.picture
 		};
 		action.user = userObj;
 		callback();

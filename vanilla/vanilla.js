@@ -21,8 +21,8 @@ module.exports = function(c, conf) {
  *      NICKNAME_MISSING        on suggestedNick parameter missing
  *      TRANSIENT_KEY_MISSING   on transient key missing
  *      MALFORMED_TRANSIENT_KEY on bad transient key
- *      VANILLA_DATABASE_ERROR
- *      NOT_AUTHORIZED
+ *      VANILLA_DATABASE_ERROR  on mysql database errors
+ *      NOT_AUTHORIZED          on bad authentication
  */
 function validateUser(action, callback) {
     var parsed;
@@ -47,7 +47,22 @@ function validateUser(action, callback) {
             if (! parsed || !parsed.TransientKey || action.tkey !== parsed.TransientKey)
                 return callback(new Error("NOT_AUTHORIZED"));
 
-            return callback();
+            // Picture loading
+            vanilladb.getUserPicture(action.suggestedNick, function (err, pic) {
+                if (err)
+                    return callback(new Error("VANILLA_DATABASE_ERROR"));
+
+                if (! pic)
+                    return callback();
+
+                // Pass the picture
+                action.picture = pic;
+                if (action.user)
+                    // Override entityloader generated picture
+                    action.user.picture = pic;
+
+                return callback();
+            });
         }
     );
 }

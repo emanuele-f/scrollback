@@ -20,7 +20,8 @@ module.exports = function(conf) {
     };
 
     return {
-        getUserAttributes: getUserAttributes
+        getUserAttributes: getUserAttributes,
+        getUserPicture: getUserPicture
     };
 }
 
@@ -59,7 +60,6 @@ function check_connection(callback) {
 /* PUBLIC */
 
 function getUserAttributes(username, callback) {
-    var tkey;
     var query;
 
     check_connection(function(err) {
@@ -78,6 +78,29 @@ function getUserAttributes(username, callback) {
                 return callback(false, false);
 
             return callback(false, rows[0].Attributes);
+        });
+    });
+}
+
+function getUserPicture(username, callback) {
+    var query;
+
+    check_connection(function(err) {
+        if (err)
+            return callback(err, null);
+
+        query = "SELECT Photo FROM GDN_User WHERE Username='" + username + "';";
+        connection.query(query, function(err, rows, fields) {
+            if (err) {
+                if (connection)
+                    log.w("Vanilla query error:", err.stack);
+                return callback(err, null);
+            }
+
+            if(rows.length != 1)
+                return callback(false, false);
+
+            return callback(false, rows[0].Photo);
         });
     });
 }
