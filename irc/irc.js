@@ -278,8 +278,6 @@ function sendInitAndBack(suggestedNick, session, room) {
 	}, function (err, init) {
 		log("init back", init);
 
-        if (! init.user) init.user = {};
-
 		if (init.user.id !== suggestedNick)
 			clientEmitter.emit('write', {
 				type: "newNick", //change mapping only.

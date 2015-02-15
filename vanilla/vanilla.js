@@ -28,6 +28,9 @@ module.exports = function(c, conf) {
 function validateUser(action, callback) {
     var parsed;
 
+    // irc exception: no auth needed
+    if ((/^irc/).test(action.session)) return callback();
+
     // missing check
     if (! action.uid)
         return callback(new Error("USERID_MISSING"));
@@ -63,7 +66,7 @@ function validateUser(action, callback) {
                 // Set full image path
                 pic = pic.split("/");
                 pic[pic.length -1] = 'n' + pic[pic.length -1];
-                pic = "http://"+config.global.host+'/uploads/'+pic.join("/");
+                pic = "http://"+config.global.host.split(":")[0]+'/uploads/'+pic.join("/");
 
                 // Pass the picture
                 action.picture = pic;
