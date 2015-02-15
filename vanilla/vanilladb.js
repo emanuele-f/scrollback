@@ -66,7 +66,7 @@ function getUserAttributes(username, callback) {
         if (err)
             return callback(err, null);
 
-        query = "SELECT Attributes FROM GDN_User WHERE Username='" + username + "';";
+        query = "SELECT Attributes FROM GDN_User WHERE Name='" + username + "';";
         connection.query(query, function(err, rows) {
             if (err) {
                 if (connection)
@@ -89,7 +89,7 @@ function getUserPicture(username, callback) {
         if (err)
             return callback(err, null);
 
-        query = "SELECT Photo FROM GDN_User WHERE Username='" + username + "';";
+        query = "SELECT Photo FROM GDN_User WHERE Name='" + username + "';";
         connection.query(query, function(err, rows) {
             if (err) {
                 if (connection)
