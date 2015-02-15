@@ -23,7 +23,7 @@ module.exports = function(conf) {
         getUserAttributes: getUserAttributes,
         getUserPicture: getUserPicture
     };
-}
+};
 
 /* PROTECTED */
 
@@ -67,7 +67,7 @@ function getUserAttributes(username, callback) {
             return callback(err, null);
 
         query = "SELECT Attributes FROM GDN_User WHERE Username='" + username + "';";
-        connection.query(query, function(err, rows, fields) {
+        connection.query(query, function(err, rows) {
             if (err) {
                 if (connection)
                     log.w("Vanilla query error:", err.stack);
@@ -90,7 +90,7 @@ function getUserPicture(username, callback) {
             return callback(err, null);
 
         query = "SELECT Photo FROM GDN_User WHERE Username='" + username + "';";
-        connection.query(query, function(err, rows, fields) {
+        connection.query(query, function(err, rows) {
             if (err) {
                 if (connection)
                     log.w("Vanilla query error:", err.stack);

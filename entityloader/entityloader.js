@@ -259,6 +259,7 @@ function initHandler(action, callback) {
 				}
 			});
 		} else {
+            // Do accept what the client suggested
 			done();
 		}
 	});
@@ -364,6 +365,9 @@ function initializerUser(action, callback) {
         if (!action.picture)
             action.picture = generatePick(possibleNick);
 
+        if (!action.tkey)
+            action.tkey = null;
+
 		userObj = {
 			id: possibleNick,
 			description: "",
@@ -372,7 +376,8 @@ function initializerUser(action, callback) {
 			params: {},
 			timezone: 0,
 			sessions: [action.session],
-			picture: action.picture
+			picture: action.picture,
+            tkey: action.tkey
 		};
 		action.user = userObj;
 		callback();

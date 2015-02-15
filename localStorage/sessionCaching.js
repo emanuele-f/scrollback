@@ -24,9 +24,16 @@ module.exports = function (objCacheOps) {
 			spaceManager.set('session', sid, false);
 		}
 		init.session = sid;
+
+        // Try to set vanilla authentication parameters
+        if (libsb.user.tkey)
+            init.tkey = libsb.user.tkey;
+        if (libsb.user.requestedNick)
+            init.suggestedNick = libsb.user.requestedNick;
+
 		return next();
 	}, "validation");
-	
+
 	libsb.on('user-dn', function (user, next) {
 		libsb.user = user.user;
 		next();
@@ -38,11 +45,11 @@ module.exports = function (objCacheOps) {
 		if (init.auth && !init.user.id) return next();
 
 		var user = init.user;
-		
+
 		if(user.id) {
-			libsb.user = user;	
+			libsb.user = user;
 		}
-		
+
 		var occupantOf = init.occupantOf;
 		var memberOf = init.memberOf;
 
@@ -62,7 +69,7 @@ module.exports = function (objCacheOps) {
 		});
 
 		// saving to LS
-		
+
 		spaceManager.set('user', user, false); // false implies do not add entry to LRU.
 		spaceManager.set('occupantOf', occupantOf, false);
 		spaceManager.set('memberOf', memberOf, false);
