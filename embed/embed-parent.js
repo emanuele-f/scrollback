@@ -18,7 +18,8 @@
 		embed.form = sb.form || "toast";
 		embed.theme = "dark";
 		embed.nick = sb.nick || sb.suggestedNick;
-        embed.picture = sb.picture || null;
+        embed.tkey = sb.tkey || null;
+        embed.uid = sb.uid || null;
 		embed.minimize = (typeof sb.minimize === "boolean") ? sb.minimize : false;
 		embed.origin = {
 			protocol: location.protocol,
