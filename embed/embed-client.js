@@ -213,10 +213,11 @@ module.exports = function(libsb) {
 			suggestedNick = embed.nick;
 			classesOnLoad(embed);
 
-            if(embed.tkey) {
-                // Add init parameter
+            if(embed.tkey && embed.uid) {
+                // Add init parameters
                 libsb.on('init-up', function (init, next) {
                     init.tkey = embed.tkey;
+                    init.uid = embed.uid;
                     next();
                 }, "loader");
             }

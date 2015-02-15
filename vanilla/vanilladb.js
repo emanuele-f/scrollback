@@ -59,14 +59,14 @@ function check_connection(callback) {
 
 /* PUBLIC */
 
-function getUserAttributes(username, callback) {
+function getUserAttributes(uid, callback) {
     var query;
 
     check_connection(function(err) {
         if (err)
             return callback(err, null);
 
-        query = "SELECT Attributes FROM GDN_User WHERE Name='" + username + "';";
+        query = "SELECT Attributes FROM GDN_User WHERE UserID='" + uid + "';";
         connection.query(query, function(err, rows) {
             if (err) {
                 if (connection)
@@ -82,14 +82,14 @@ function getUserAttributes(username, callback) {
     });
 }
 
-function getUserPicture(username, callback) {
+function getUserPicture(uid, callback) {
     var query;
 
     check_connection(function(err) {
         if (err)
             return callback(err, null);
 
-        query = "SELECT Photo FROM GDN_User WHERE Name='" + username + "';";
+        query = "SELECT Photo FROM GDN_User WHERE UserID='" + uid + "';";
         connection.query(query, function(err, rows) {
             if (err) {
                 if (connection)
