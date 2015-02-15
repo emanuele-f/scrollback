@@ -213,14 +213,6 @@ module.exports = function(libsb) {
 			suggestedNick = embed.nick;
 			classesOnLoad(embed);
 
-            if(embed.picture) {
-                // Add init parameter
-                libsb.on('init-up', function (init, next) {
-                    init.picture = embed.picture;
-                    next();
-                }, "loader");
-            }
-
             if(embed.tkey) {
                 // Add init parameter
                 libsb.on('init-up', function (init, next) {
