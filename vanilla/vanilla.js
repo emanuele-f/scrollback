@@ -35,7 +35,7 @@ function validateUser(action, callback) {
         return callback(new Error("TRANSIENT_KEY_MISSING"));
 
     // uid validation
-    if (! action.uid.march(/^[0-9]+$/))
+    if (! action.uid.match(/^[0-9]+$/))
         return callback(new Error("MALFORMED_USERID"));
 
     // transient key validation

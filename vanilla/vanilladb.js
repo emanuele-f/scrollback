@@ -67,6 +67,7 @@ function getUserAttributes(uid, callback) {
             return callback(err, null);
 
         query = "SELECT Attributes FROM GDN_User WHERE UserID='" + uid + "';";
+        log.d("Query:", query);
         connection.query(query, function(err, rows) {
             if (err) {
                 if (connection)
