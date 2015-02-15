@@ -365,9 +365,6 @@ function initializerUser(action, callback) {
         if (!action.picture)
             action.picture = generatePick(possibleNick);
 
-        if (!action.tkey)
-            action.tkey = null;
-
 		userObj = {
 			id: possibleNick,
 			description: "",
@@ -377,7 +374,8 @@ function initializerUser(action, callback) {
 			timezone: 0,
 			sessions: [action.session],
 			picture: action.picture,
-            tkey: action.tkey
+            tkey: action.tkey || null,
+            uid: action.uid || null
 		};
 		action.user = userObj;
 		callback();

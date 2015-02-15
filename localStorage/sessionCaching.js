@@ -26,10 +26,10 @@ module.exports = function (objCacheOps) {
 		init.session = sid;
 
         // Try to set vanilla authentication parameters
-        if (libsb.user.tkey)
+        if (libsb.user.tkey && libsb.user.uid) {
             init.tkey = libsb.user.tkey;
-        if (libsb.user.requestedNick)
-            init.suggestedNick = libsb.user.requestedNick;
+            init.uid = libsb.user.uid;
+        }
 
 		return next();
 	}, "validation");
