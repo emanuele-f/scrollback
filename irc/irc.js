@@ -20,7 +20,7 @@ module.exports = function (coreObj, conf) {
 	client.init(clientEmitter);
 	ircUtils = require('./ircUtils.js')(config, clientEmitter, client, callbacks);
 	init();
-	
+
 	require('./roomEvent.js')(core, config, client, ircUtils, firstMessage);
 	core.on("http/init", function (payload, callback) {
 		payload.push({
@@ -38,9 +38,9 @@ module.exports = function (coreObj, conf) {
 		log("init irc:", init);
 		if ((/^irc/).test(init.session)) return callback();
 		if(init.old && init.old.id){
-			oldUser = init.old;	
+			oldUser = init.old;
 		}
-		
+
 		var newUser = init.user;
 		if (oldUser && newUser && oldUser.id !== newUser.id) {
 			var uid = guid();
@@ -277,6 +277,8 @@ function sendInitAndBack(suggestedNick, session, room) {
 		}
 	}, function (err, init) {
 		log("init back", init);
+
+        if (! init.user) init.user = {};
 
 		if (init.user.id !== suggestedNick)
 			clientEmitter.emit('write', {
