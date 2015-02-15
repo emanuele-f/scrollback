@@ -63,7 +63,7 @@ function validateUser(action, callback) {
                 // Set full image path
                 pic = pic.split("/");
                 pic[pic.length -1] = 'n' + pic[pic.length -1];
-                pic = "http:/"+config.global.host+'/uploads/'+pic.join("/");
+                pic = "http://"+config.global.host+'/uploads/'+pic.join("/");
 
                 // Pass the picture
                 action.picture = pic;
