@@ -2,9 +2,8 @@
  * A script to authentify vanilla users
  */
 
-var config;
+var core, config;
 var vanilladb;
-var log = require('../lib/logger.js');
 var parser = require('./groan/groan.js');
 
 module.exports = function(c, conf) {
@@ -14,7 +13,7 @@ module.exports = function(c, conf) {
     vanilladb = require('./vanilladb.js')(config);
 
     core.on("init", validateUser, "loader");
-}
+};
 
 /*
  * @RAISES
@@ -26,8 +25,6 @@ module.exports = function(c, conf) {
  */
 function validateUser(action, callback) {
     var parsed;
-
-    log.d("action:", action);
 
     // missing check
     if (! action.suggestedNick)
