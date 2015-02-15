@@ -33,7 +33,7 @@ var defaults = {
 			name: 'Scrollback Local'
 		}
 	},
-	appPriorities: { // don't override 
+	appPriorities: { // don't override
 		antiflood: 1000,
 		validation: 900,
 		loader: 850,
@@ -119,14 +119,21 @@ var defaults = {
 	google: {
 	},
 	storage: {
-		pg: {	
+		pg: {
 			server: "localhost", //server:port
 			db: "scrollback",
 			username: "username",
 			password: "password"
 		},
 		redisDB: 5
-	}
+	},
+    vanilla : {
+        host: "localhost",
+        port: 3306,
+		db: "vanilla",
+		username: "username",
+        password: "password"
+    }
 };
 
 config = (function() {
