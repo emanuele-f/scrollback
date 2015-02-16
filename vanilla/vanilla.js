@@ -63,10 +63,15 @@ function validateUser(action, callback) {
                 if (! pic)
                     return callback();
 
-                // Set full image path
-                pic = pic.split("/");
-                pic[pic.length -1] = 'n' + pic[pic.length -1];
-                pic = "http://"+config.global.host.split(":")[0]+'/uploads/'+pic.join("/");
+                if (pic.match(/^\/\//)) {
+                    // external picture
+                    pic = pic.substring(2, pic.length);
+                } else {
+                    // local picture
+                    pic = pic.split("/");
+                    pic[pic.length -1] = 'n' + pic[pic.length -1];
+                    pic = "http://"+config.global.host.split(":")[0]+'/uploads/'+pic.join("/");
+                }
 
                 // Pass the picture
                 action.picture = pic;
