@@ -30,10 +30,21 @@ Boston, MA 02111-1307 USA.
  *  storage - needed for postgresql database (use leveldb-storage instead)
  */
 
-var plugins = [ "validator", "browserid-auth", "anti-abuse",
-			   "authorizer", "redis-storage", "leveldb-storage",
-			   "entityloader", "irc",  "censor", "superuser", "search", "sitemap",
-			   "push-notification", "vanilla"];
+var plugins = [
+    "validator",
+    "browserid-auth",
+    "anti-abuse",
+    "authorizer",
+    "redis-storage",
+    "leveldb-storage",
+	"entityloader",
+    "irc",
+    "censor",
+    "superuser",
+    "search",
+    "sitemap",
+	"push-notification",
+    "vanilla"];
 
 require('newrelic');
 var log = require('./lib/logger.js');

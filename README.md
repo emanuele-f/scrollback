@@ -6,5 +6,3 @@ chat program to run at http://informateci.org
 - [x] Use actual user forum image
 - [x] Only allow registered users to access the room
 - [ ] Login the user into irc as soon as the chat window is opened
-- [ ] Add ircClient "production" options to the build script and use production globally
-- [ ] Fix accented letters
