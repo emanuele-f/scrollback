@@ -65,7 +65,7 @@ function validateUser(action, callback) {
 
                 if (pic.match(/^\/\//)) {
                     // external picture
-                    pic = pic.substring(2, pic.length);
+                    pic = 'http:'+pic;
                 } else {
                     // local picture
                     pic = pic.split("/");
