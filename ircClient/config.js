@@ -25,14 +25,14 @@ function merge(d, c) {
 
 
 var defaults = {
-	botNick: "informateci",//default bot nick,
+	botNick: "informatechat",//default bot nick,
 	port: 8910,
 	debug: false,
 	webirc: {
 	},
 	env: "production",
 	email: {
-		from: "scrollback@scrollback.io"
+		from: "informatechat@informateci.org"
 	}
 };
 merge(defaults, changes);
