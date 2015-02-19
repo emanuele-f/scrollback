@@ -33,11 +33,11 @@ $(function() {
 		setPlaceHolder = function(content) {
 			if (libsb.user && libsb.user.id && !$entry.text().trim()) {
 				if (typeof content !== "string") {
-					content = "Reply as " + libsb.user.id.replace(/^guest-/, "");
+					content = "Rispondi come " + libsb.user.id.replace(/^guest-/, "");
 
-					if (!window.currentState.thread) {
-						content += " or <a class='text-button js-new-discussion'>start a discussion</a>";
-					}
+					//if (!window.currentState.thread) {
+					//	content += " or <a class='text-button js-new-discussion'>start a discussion</a>";
+					//}
 				}
 
 				$placeholder.html(content);
