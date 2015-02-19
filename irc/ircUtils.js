@@ -63,7 +63,7 @@ module.exports = function(conf, clientEmitter, client, callbacks) {
 			uid: uid,
 			type: 'connectBot',
 			room: room,
-			options: {identId: "scrollback@scrollback.io"}
+			options: {identId: "chatbot@informateci.org"}
 		});
 		if (callback) {
 			callbacks[uid] = function(message) {
