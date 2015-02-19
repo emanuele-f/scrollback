@@ -59,7 +59,7 @@ function createRoom(room, user, description, id)
             params: {
                 irc: {
                     server: "irc.freenode.net",
-                    channel: "#informate-chat",
+                    channel: "#informatechat",
                     enabled: true,
                     pending: false
                 }
@@ -115,4 +115,4 @@ function createUser(user, email, id)
 createUser("MindFlyer", "viglietta@gmail.com");
 
 // :. Create informate-chat room
-createRoom("informate-chat", "MindFlyer", "La chat degli studenti informatici pisani");
+createRoom("informatechat", "MindFlyer", "La chat degli studenti informatici pisani");

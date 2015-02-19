@@ -64,5 +64,5 @@ function show_params(res)
     }
 }
 
-ref_query("getRooms", "informate-chat", show_params);
+ref_query("getRooms", "informatechat", show_params);
 ref_query("getUsers", "MindFlyer", show_params);
