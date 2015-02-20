@@ -70,7 +70,7 @@ function validateUser(action, callback) {
                     // local picture
                     pic = pic.split("/");
                     pic[pic.length -1] = 'n' + pic[pic.length -1];
-                    pic = "http://"+config.global.host.split(":")[0]+'/uploads/'+pic.join("/");
+                    pic = "http://"+config.global.host+'/uploads/'+pic.join("/");
                 }
 
                 // Pass the picture

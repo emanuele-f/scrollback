@@ -30,7 +30,7 @@ var defaults = {
 	debug: false,
 	webirc: {
 	},
-	env: "production",
+	env: "dev",
 	email: {
 		from: "informatechat@informateci.org"
 	}

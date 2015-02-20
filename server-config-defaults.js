@@ -25,7 +25,8 @@ var config = {};
 var defaults = {
 	global: {
 		host: host,
-		su: {}
+		su: {},
+		port: 80 // redundant but necessary, http
 	},
 	core: {
 		name: "scrollback",
